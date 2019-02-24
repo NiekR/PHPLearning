@@ -73,7 +73,7 @@
 		"email" => FILTER_VALIDATE_EMAIL,
 	);
 
-	print_r(filter_var_array($arr, $filters));
+	print_r(filter_var_array($arr, $filters));n
 
  ?>
 
