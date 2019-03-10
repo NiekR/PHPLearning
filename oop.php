@@ -52,14 +52,13 @@
 	// echo $person1->getEmail();
 
 	class Customer extends Person{
+
 		private $balance;
 
 		public function __construct($name, $email, $balance){
 			$this->balance = $balance;
 			parent::__construct($email, $name, $balance);
-
 			echo "A new ".__CLASS__.' Has been created';
-
 		}
 
 		// Set get Email
@@ -70,8 +69,6 @@
 		public function getBalance(){
 			return $this->balance.'<br>';
 		}
-
-	
 	}
 
 	$customer1 = new Customer('Peter pep', 'email@email.com', 300);

@@ -10,9 +10,11 @@
 	$result =  mysqli_query($conn, $query);
 
 	// fetch data
+    // fetch result row ass associate array (array w/ key => value)
 	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-	// free resul
+	// free result
+    // free result memory
 	mysqli_free_result($result);
 	// var_dump($posts);
 

@@ -4,6 +4,7 @@
 	require('db.php');
 
     // get id
+    // Escape special characters in a string \
     $id = mysqli_real_escape_string($conn,$_GET['id']);
 
 	// create query
