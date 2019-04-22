@@ -6,8 +6,17 @@
 
     <div class="container">
         <div class="main">
-            <p>You are logged out!</p>
-            <p>You are logged in!</p>
+            <?php
+                if(isset($_SESSION['userName'])){
+                    echo 'You are logged in!';
+                }
+                else {
+                    echo 'You are logged out!';
+                }
+
+            ?>
+            <p></p>
+
         </div>
     </div>
 

@@ -1,4 +1,8 @@
+<?php
 
+session_start();
+
+?>
 
 <html>
 <head>
@@ -28,27 +32,27 @@
                </div>
 
                <div class="form">
-                   <!-- Login -->
-                   <form action="includes/login.php" method="post">
-                       <div class="d-flex">
-                           <div class="form-group mr-2">
-                               <input class="form-control" type="text" name="mailuid" placeholder="Your e-mail">
+                   <?php
+                   if(!isset($_SESSION['userName'])) {
+                       echo '
+                       <form action="includes/login.php" method="post">
+                           <div class="d-flex">
+                               <div class="form-group mr-2">
+                                   <input class="form-control" type="text" name="mailuid" placeholder="Your e-mail">
+                               </div>
+    
+                               <div class="form-group mr-2">
+                                   <input class="form-control" type="password" name="pwd" placeholder="Your password" >
+                               </div>
+    
+                               <div class="form-group mr-2">
+                                   <button class="btn btn-danger" type="submit" name="login-submit">Login</button>
+                               </div>
                            </div>
-
-                           <div class="form-group mr-2">
-                               <input class="form-control" type="password" name="pwd" placeholder="Your password" >
-                           </div>
-
-                           <div class="form-group mr-2">
-                               <button class="btn btn-danger" type="submit" name="login-submit">Login</button>
-                           </div>
-                       </div>
-                   </form>
-               </div>
-
-
-
-           </div>
+                       </form>
+                    ';
+                   }
+                   ?>
         </div>
 
     </div>

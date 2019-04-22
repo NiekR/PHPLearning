@@ -24,7 +24,7 @@ if (isset($_POST['login-submit'])) {
         }
         else{
             // Pass in given params from users
-            mysqli_stmt_bind_param($stmt, "ss", $mailuid, $password);
+            mysqli_stmt_bind_param($stmt, "ss", $mailuid, $mailuid);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
 
@@ -41,6 +41,9 @@ if (isset($_POST['login-submit'])) {
                     session_start();
                     $_SESSION['userId'] = $row['íd'];
                     $_SESSION['userName'] = $row['username'];
+
+                    header("Location: ../index.php?login=succes");
+                    exit();
                 }
                 else{
                     header("Location: ../index.php?error=wrongpw");
