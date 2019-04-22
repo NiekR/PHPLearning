@@ -27,6 +27,7 @@ class Calc {
                 $result = 'Error';
         }
         return $result;
-    }
 
+
+    }
 }
