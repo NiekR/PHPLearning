@@ -9,12 +9,13 @@ require "header.php"
         <h1>Signup</h1>
 
         <form action="includes/signup.php" method="post">
-            <div class="form-group">
-                <input class="form-control" type="text" name="mailuid" placeholder="Your e-mail">
-            </div>
 
             <div class="form-group">
                 <input class="form-control" type="text" name="uid" placeholder="Your username" >
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="text" name="mail" placeholder="Your e-mail">
             </div>
 
             <div class="form-group">
@@ -22,7 +23,7 @@ require "header.php"
             </div>
 
             <div class="form-group">
-                <input class="form-control" type="password" name="pwd" placeholder="Repeat password" >
+                <input class="form-control" type="password" name="pwd-repeat" placeholder="Repeat password" >
             </div>
 
             <div class="form-group">

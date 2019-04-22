@@ -20,7 +20,7 @@ if (isset ($_POST['signup-submit'])) {
         header("Location: ../signup.php?error=invalidmail&uid=".$username);
         exit();
     }
-    else  if (!preg_match("/^[]a-ZA-Z0-9*$/", $username)) {
+    else  if (preg_match("/^[]a-ZA-Z0-9*$/", $username)) {
         header("Location: ../signup.php?error=invaliduid&mail=".$email);
         exit();
     }
@@ -37,9 +37,58 @@ if (isset ($_POST['signup-submit'])) {
             exit();
         }
         else {
-            mysqli_stmt_bind_param($stmt, "s");
+            mysqli_stmt_bind_param($stmt, "s", $username);
+
+            // Check data database
+            mysqli_stmt_execute($stmt);
+
+            // Store result from database back in variable
+            mysqli_stmt_store_result($stmt);
+
+            // Amount of rows of result
+            $resultCheck = mysqli_stmt_num_rows($stmt);
+
+
+            // Check if user is taken
+            if ($resultCheck > 0) {
+                header("Location: ../signup.php?error=usertaken&mail=".$email);
+                exit();
+            }
+            else{
+
+                $sql = "INSERT INTO users (username,email,passw) VALUES (?,?,?)";
+                $stmt = mysqli_stmt_init($conn);
+
+                // Check if SQL statement is valiable
+                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    header("Location: ../signup.php?error=sqlerror");
+                    exit();
+                }
+                else {
+                    // Hash pw
+                    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+
+                    mysqli_stmt_bind_param($stmt, "sss", $username, $email,$hashedPwd);
+
+                    // Check data database
+                    mysqli_stmt_execute($stmt);
+
+                    header("Location: ../signup.php?signup=succes");
+                    exit();
+
+                }
+            }
+
         }
     }
 
+    // Disconnect
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
+
+}
+else {
+    header("Location: ../signup.php");
+    exit();
 }
 

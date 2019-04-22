@@ -11,48 +11,44 @@
 </head>
 <body>
 
-    <div class="header mt-5">
+    <div class="header">
         <div class="container">
 <!--            <a href="#">-->
 <!--                <img src="#" alt="#">-->
 <!--            </a>-->
 
-            <ul class="d-flex" >
-                <li class="mr-4" ><a href="index.php">Home</a></li>
-                <li class="mr-4" ><a href="#">Portfolio</a></li>
-                <li class="mr-4" ><a href="#">About me</a></li>
-                <li class="mr-4" ><a href="#">Contact</a></li>
-            </ul>
+           <div class="navbar d-flex align-items-center justify-content-between">
+               <div class="nav">
+                   <ul class="d-flex" >
+                       <li class="mr-4" ><a href="index.php">Home</a></li>
+                       <li class="mr-4" ><a href="#">Portfolio</a></li>
+                       <li class="mr-4" ><a href="#">About me</a></li>
+                       <li class="mr-4" ><a href="#">Contact</a></li>
+                   </ul>
+               </div>
 
-            <div class="form">
+               <div class="form">
+                   <!-- Login -->
+                   <form action="includes/login.php" method="post">
+                       <div class="d-flex">
+                           <div class="form-group mr-2">
+                               <input class="form-control" type="text" name="mailuid" placeholder="Your e-mail">
+                           </div>
 
-                <!-- Login -->
-                <form action="includes/login.php" method="post">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="mailuid" placeholder="Your e-mail">
-                    </div>
+                           <div class="form-group mr-2">
+                               <input class="form-control" type="password" name="pwd" placeholder="Your password" >
+                           </div>
 
-                    <div class="form-group">
-                        <input class="form-control" type="password" name="pwd" placeholder="Your password" >
-                    </div>
-
-                    <div class="form-group">
-                        <button class="btn btn-danger" type="submit" name="login-submit">Login</button>
-                    </div>
-                </form>
-
-               <div class="other mt-5">
-                   <a class="btn btn-warning" href="signup.php">Sign up!</a>
-
-                   <!-- Logout -->
-                   <form action="signup.php" method="post">
-                       <div class="form-group mt-3">
-                           <button class="btn btn-danger" type="submit" name="logout-submit">Logout</button>
+                           <div class="form-group mr-2">
+                               <button class="btn btn-danger" type="submit" name="login-submit">Login</button>
+                           </div>
                        </div>
                    </form>
                </div>
 
-            </div>
+
+
+           </div>
         </div>
 
     </div>
