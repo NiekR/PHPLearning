@@ -12,8 +12,10 @@ if (isset ($_POST['signup-submit'])) {
         header("Location: ../signup.php?error=emptyfields&uid=".$username."&mail".$email);
         exit();
     }
+
+    // Email validation
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[]a-ZA-Z0-9*$/", $username) ) {
-        header("Location: ../signup.php?error=invalidmailuid");
+        header("Location: ../signup.php?error=invalidmail");
         exit();
     }
     else  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -30,13 +32,17 @@ if (isset ($_POST['signup-submit'])) {
     }
     else {
 
+        // Query with placeholders
         $sql = "SELECT username FROM users WHERE username=? AND passw=?";
+
+        // Init statement and return object for stmt_prepare
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("Location: ../signup.php?error=sqlerror");
             exit();
         }
         else {
+            // "s" for 1 string
             mysqli_stmt_bind_param($stmt, "s", $username);
 
             // Check data database

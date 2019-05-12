@@ -23,15 +23,15 @@ session_start();
 
            <div class="navbar d-flex align-items-center justify-content-between">
                <div class="nav">
-                   <ul class="d-flex" >
-                       <li class="mr-4" ><a href="index.php">Home</a></li>
+                   <ul class="d-flex list-unstyled" >
+                       <li class="mr-4" ><a class="dark-link" href="index.php">Home</a></li>
                        <li class="mr-4" ><a href="#">Portfolio</a></li>
                        <li class="mr-4" ><a href="#">About me</a></li>
                        <li class="mr-4" ><a href="#">Contact</a></li>
                    </ul>
                </div>
 
-               <div class="form">
+               <div class="form pt-2">
                    <?php
                    if(!isset($_SESSION['userName'])) {
                        echo '

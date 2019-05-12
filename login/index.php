@@ -13,13 +13,9 @@
                 else {
                     echo 'You are logged out!';
                 }
-
             ?>
-            <p></p>
-
         </div>
     </div>
-
 
 <?php
 
